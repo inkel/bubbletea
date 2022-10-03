@@ -23,10 +23,20 @@ type renderer interface {
 
 	// Whether or not the alternate screen buffer is enabled.
 	altScreen() bool
+	// Enable the alternate screen buffer.
+	enterAltScreen()
+	// Disable the alternate screen buffer.
+	exitAltScreen()
 
-	// Record internally that the alternate screen buffer is enabled. This
-	// does not actually toggle the alternate screen buffer.
-	setAltScreen(bool)
+	// Show the cursor.
+	showCursor()
+	// Hide the cursor.
+	hideCursor()
+
+	enableMouseCellMotion()
+	disableMouseCellMotion()
+	enableMouseAllMotion()
+	disableMouseAllMotion()
 }
 
 // repaintMsg forces a full repaint.
